@@ -17,3 +17,4 @@ else
     printf 'Teenus %s ei ole aktiivne (olek: %s).\\n' "$service" "${state:-unknown}"
     exit 1
 fi
+#if systemctl list-unit-files --type=service 2>/dev/null | awk '{print $1}' | grep -qx "${service}.service"; then echo "Teenus $service töötab."exit 0
