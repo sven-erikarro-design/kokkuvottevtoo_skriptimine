@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 BASE_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-source "$BASE_DIR/config/settings.conf"
+source "$BASE_DIR/config/settings.conf" *Varunduma peab ainult test data*
 DATE="$(date '+%Y%m%d_%H%M%S')"
 ARCHIVE="$BACKUP_DIR/backup_$DATE.tar.gz"
 if [[ ! -d "$BACKUP_SOURCE" ]]; then
@@ -21,3 +21,5 @@ if ! tar -tzf "$ARCHIVE" >/dev/null; then
 fi
 printf 'Varukoopia valmis: %s\n' "$ARCHIVE"
 printf 'Arhiivi kirjeid: %s\n' "$(tar -tzf "$ARCHIVE" | wc -l)"
+
+
